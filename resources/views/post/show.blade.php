@@ -12,7 +12,7 @@
         <div class="text">{{ $item->message }}</div>
     @endif
 
-    <a href="/post"><img src="{{ asset('img/edit.svg') }}" class="add" alt="topへ"></a>
+    <a href="/post"><img src="{{ asset('img/no_image.jpg') }}" class="add" alt="topへ"></a>
 @endsection
 
 @if($item !== '')
@@ -24,7 +24,7 @@
 
         <!--ここから追加-->
         <form action="/post/{{$item->id}}" method="POST">
-            {{ csrf_field() }}           
+            {{ csrf_field() }}
             <!-- value仮入れ(Userモデルとリレーションするのに必要) -->
             <input type="hidden" name="user_id" value="1">
             <input type="text" class="form" name="title" placeholder="タイトル" value="{{ $item->title }}">

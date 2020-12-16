@@ -27,35 +27,35 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        // $post = new Post;
-        // $form = $request->all();
+        $post = new Post;
+        $form = $request->all();
 
-        // // 最低限なバリデーション処理です。ここでは特に説明はしません。
-        // $rules = [
-        //     'user_id' => 'integer|required', // 2項目以上条件がある場合は「 | 」を挟む
-        //     'title' => 'required',
-        //     'message' => 'required',
-        // ];
-        // $message = [
-        //     'user_id.integer' => 'System Error',
-        //     'user_id.required' => 'System Error',
-        //     'title.required'=> 'タイトルが入力されていません',
-        //     'message.required'=> 'メッセージが入力されていません'
-        // ];
-        // $validator = Validator::make($form, $rules, $message);
+        // 最低限なバリデーション処理です。ここでは特に説明はしません。
+        $rules = [
+            'user_id' => 'integer|required', // 2項目以上条件がある場合は「 | 」を挟む
+            'title' => 'required',
+            'message' => 'required',
+        ];
+        $message = [
+            'user_id.integer' => 'System Error',
+            'user_id.required' => 'System Error',
+            'title.required'=> 'タイトルが入力されていません',
+            'message.required'=> 'メッセージが入力されていません'
+        ];
+        $validator = Validator::make($form, $rules, $message);
 
-        // if($validator->fails()){
-        //     return redirect('/post')
-        //         ->withErrors($validator)
-        //         ->withInput();
-        // }else{
-        //     unset($form['_token']);
-        //     $post->user_id = $request->user_id;
-        //     $post->title = $request->title;
-        //     $post->body = $request->body;
-        //     $post->save();
-        //     return redirect('/post');
-        // }
+        if($validator->fails()){
+            return redirect('/post')
+                ->withErrors($validator)
+                ->withInput();
+        }else{
+            unset($form['_token']);
+            $post->user_id = $request->user_id;
+            $post->title = $request->title;
+            $post->message = $request->message;
+            $post->save();
+            return redirect('/post');
+        }
     }
 
     public function show($id)
@@ -74,7 +74,7 @@ class PostController extends Controller
         unset($form['_token']);
         $post->user_id = $request->user_id;
         $post->title = $request->title;
-        $post->body = $request->body;
+        $post->message = $request->message;
         $post->save();
         return redirect('/post');
     }
