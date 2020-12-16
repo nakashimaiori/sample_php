@@ -10,8 +10,8 @@ class UserController extends Controller
 {
   public function index()
     {
-        $items = User::all();
-        return view('user.index', ['items' => $items]); // ビューの描画
-        // return $items->toArray(); // JSONデータで描画
+        // $items = User::all();
+        // return view('user.index', ['items' => $items]); // ビューの描画
+        // // return $items->toArray(); // JSONデータで描画
     }
 }

@@ -17,6 +17,9 @@ Route::resource('/post', 'App\Http\Controllers\PostController');
 Route::resource('/user', 'App\Http\Controllers\ UserController');
 
 
+
+
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
