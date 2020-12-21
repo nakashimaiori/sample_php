@@ -17,7 +17,7 @@ Route::resource('/post', 'App\Http\Controllers\PostController');
 Route::resource('/user', 'App\Http\Controllers\ UserController');
 
 
-
+// Route::get('/user', 'UserController@getIndex');
 
 
 Route::get('/welcome', function () {
